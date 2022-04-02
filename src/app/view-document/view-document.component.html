@@ -1,0 +1,22 @@
+<div class="btn-right">
+    <button mat-stroked-button color="primary" (click)="fileInput.click()">
+        <mat-icon>upload</mat-icon>
+        <span>Add from disk</span>
+        <input #fileInput type="file"
+            accept="image/*"
+            (change)="onFileInput($event)" style="display:none;" multiple />
+    </button>
+</div>
+<div>
+    <mat-grid-list [cols]="this.gridCols" rowHeight="5:3">
+        <mat-grid-tile *ngFor="let document of (verificationDocuments)">
+            <div class="verification-document-tile" *ngIf="document?.name">
+                <app-zoomable-image
+                    [src]="document.file | previewLocalImage | async"
+                    class="verification-document">
+                </app-zoomable-image>
+            </div>
+        </mat-grid-tile>
+        <!-- <pre>{{verificationDocuments|json}}</pre> -->
+    </mat-grid-list>
+</div>

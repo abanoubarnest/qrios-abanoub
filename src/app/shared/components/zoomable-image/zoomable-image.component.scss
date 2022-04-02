@@ -1,0 +1,36 @@
+.zoomable-image-container {
+    position: relative;
+    max-width: 100%;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+.zoomable-image-container:hover .zoom-button {
+    display: block;
+}
+
+.zoom-button {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+}
+
+.zoom-overlay {
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.7);
+}
